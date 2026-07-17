@@ -322,17 +322,34 @@ main {
 
 .socials {
   display: flex;
-  gap: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   margin-top: 0.5rem;
 }
 
-.socials a {
+.social-link {
   display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
   color: var(--text-muted);
-  transition: color 0.15s ease;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
-.socials a:hover {
+.social-link:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.social-link .icon {
   color: var(--accent);
 }
 
