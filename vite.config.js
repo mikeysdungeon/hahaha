@@ -1,11 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// The site is served from https://mikeysdungeon.github.io/hahaha/, so every
-// asset URL needs the repo name prefixed. If you move to a custom domain or
-// rename the repo, change this (and the router basename follows automatically
-// via import.meta.env.BASE_URL).
-const base = "/hahaha/";
+// In production the site is served from https://mikeysdungeon.github.io/hahaha/,
+// so every asset URL needs the repo name prefixed. If you move to a custom
+// domain or rename the repo, change this (the router basename and asset()
+// helper both follow automatically via import.meta.env.BASE_URL).
+//
+// Dev stays at "/" so the local server is plain http://localhost:5173/.
+// Applying the prefix in dev too would serve the app at /hahaha/ and leave the
+// bare root blank, since the router's basename would not match the URL.
+const PROD_BASE = "/hahaha/";
 
 // GitHub Pages has no server-side routing: a request for /hahaha/projects/foo
 // finds no such file and falls back to 404.html. Publishing a copy of the app
@@ -28,7 +32,7 @@ function spa404Fallback() {
   };
 }
 
-export default defineConfig({
-  base,
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? PROD_BASE : "/",
   plugins: [react(), spa404Fallback()],
-});
+}));
