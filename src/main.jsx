@@ -5,7 +5,7 @@ import App from "./App.jsx";
 import "./styles/theme.css";
 import "./styles/global.css";
 
-// Served from a subpath on GitHub Pages ("/hahaha/"), so the router has to
+// Served from a subpath on GitHub Pages ("/portfolio/"), so the router has to
 // strip that prefix before matching routes — otherwise every path 404s in
 // production while working locally. Derived from Vite's base, so the two can
 // never drift apart.

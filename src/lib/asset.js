@@ -2,7 +2,7 @@
 //
 // Vite rewrites asset URLs it can see in HTML/CSS and in `import`ed modules,
 // but a plain string in JS (e.g. "/projects/foo.webp" in content data) is
-// opaque to it. Served from a subpath like /hahaha/, such a string would
+// opaque to it. Served from a subpath like /portfolio/, such a string would
 // request the domain root and 404. Prefixing with BASE_URL keeps the same
 // content working at the root in dev and under the subpath in production.
 //
