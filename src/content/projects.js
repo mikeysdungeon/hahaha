@@ -18,6 +18,31 @@
 
 export const projects = [
   {
+    name: "Test Analysis Platform",
+    slug: "test-analysis-platform",
+    subtitle: "System Design · FastAPI · React · Hosting on Render",
+    description:
+      "A full-stack analytics platform for visualising and interpreting test rig data from client projects — turning an hour of manual analysis into a single click.",
+    detail:
+      "While working with test rig data from client projects, I needed a way to interpret my results at a larger scale, so I built the analytics system myself. That pulled me into a new domain — software engineering — where I picked up system design and hosting along the way. The result is a FastAPI backend with a React frontend, hosted on Render.",
+
+    output:
+      "A working, hosted analytics platform you can use today. What used to take me an hour of manual analysis now takes a single click.",
+
+    highlights: [
+      "Built an analytics system to visualise and interpret test rig data from client projects at a scale manual review couldn't reach.",
+      "Designed and implemented a FastAPI backend serving a React frontend, deployed and hosted on Render.",
+      "Self-taught the system design and hosting needed to take the project from local prototype to a live, publicly accessible application.",
+      "Reduced a repetitive, hour-long analysis task to a single click.",
+    ],
+    tags: ["System Design", "FastAPI", "Python", "React", "Render", "Full-Stack"],
+    links: {
+      demo: "https://mikeysspace.github.io/Test-Analysis-Platform-/",
+    },
+    image: "",
+    featured: true,
+  },
+  {
     name: "Handlebar Mount",
     slug: "handlebar-mount",
     subtitle:
