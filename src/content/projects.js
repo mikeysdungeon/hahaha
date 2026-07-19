@@ -29,17 +29,55 @@ export const projects = [
     output:
       "A working, hosted analytics platform you can use today. What used to take me an hour of manual analysis now takes a single click.",
 
-    highlights: [
-      "Built an analytics system to visualise and interpret test rig data from client projects at a scale manual review couldn't reach.",
-      "Designed and implemented a FastAPI backend serving a React frontend, deployed and hosted on Render.",
-      "Self-taught the system design and hosting needed to take the project from local prototype to a live, publicly accessible application.",
-      "Reduced a repetitive, hour-long analysis task to a single click.",
+    stages: [
+      {
+        title: "A walk through the platform",
+        parts: [
+          {
+            label: "Step 1",
+            title: "Start an analysis",
+            body: "Upload a CSV of prototype load-test results — or load the built-in sample data — and state the minimum load the part has to survive. The platform reads timestamped load and displacement readings for each prototype and takes it from there.",
+            image: "/projects/test-analysis-platform/start-page.webp",
+            alt: "The landing page: a form to upload test data or use sample data, with a field for the minimum required load set to 400 N.",
+          },
+          {
+            label: "Step 2",
+            title: "Read the results",
+            body: "The analysis picks a recommended prototype and explains why. Here V2 (PA6-CF) reached 438 N against the 400 N requirement — a +38 N margin, and the only one of two prototypes to pass. A dataset summary and a comparison table lay out peak load, displacement, safety margin and pass/fail for each iteration.",
+            image: "/projects/test-analysis-platform/results.webp",
+            alt: "Results view: a recommended-prototype callout for V2, a dataset summary, and a prototype comparison table showing V1 failing and V2 passing.",
+          },
+          {
+            label: "Step 3",
+            title: "Compare load against displacement",
+            body: "An interactive load-versus-displacement chart plots every prototype's measured curve against the requirement line, so the iterations can be compared at a glance and individual curves toggled on or off.",
+            image: "/projects/test-analysis-platform/load-vs-displacement.webp",
+            alt: "A load-versus-displacement line chart with curves for V1 and V2 and a dashed line marking the 400 N requirement.",
+          },
+        ],
+      },
     ],
+
+    takeaways: [
+      {
+        title: "Full-stack, self-hosted",
+        body: "A FastAPI backend serving a React frontend, deployed and hosted on Render — built and run end to end rather than handed off.",
+      },
+      {
+        title: "Self-taught system design",
+        body: "Software engineering was a new domain for me; I picked up the system design and hosting needed to take this from a local prototype to a live, publicly accessible application.",
+      },
+      {
+        title: "From an hour to a click",
+        body: "The platform turns a repetitive, hour-long manual analysis into a single click — and applies a consistent pass/fail rule instead of eyeballing each result.",
+      },
+    ],
+
     tags: ["System Design", "FastAPI", "Python", "React", "Render", "Full-Stack"],
     links: {
       demo: "https://mikeysspace.github.io/Test-Analysis-Platform-/",
     },
-    image: "",
+    image: "/projects/test-analysis-platform/load-vs-displacement.webp",
     featured: true,
   },
   {
