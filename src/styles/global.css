@@ -437,12 +437,14 @@ main {
 }
 
 .card {
+  position: relative; /* anchor for the stretched-link overlay */
   display: flex;
   flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  cursor: pointer; /* the whole card navigates to the project */
   transition: border-color 0.15s ease, transform 0.15s ease,
     box-shadow 0.15s ease;
 }
@@ -487,6 +489,16 @@ main {
   color: var(--accent);
 }
 
+/* Stretched link: the title's click area covers the whole card, so a click
+   anywhere navigates to the project. Interactive elements that go elsewhere
+   (the Live/Code links) are lifted above this overlay below. */
+.card-title-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
 .card-text {
   color: var(--text-muted);
   font-size: 0.95rem;
@@ -498,7 +510,8 @@ main {
   gap: 1.1rem;
 }
 
-.card-links a {
+.card-links a,
+.card-cta {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -506,8 +519,21 @@ main {
   font-weight: 600;
 }
 
+/* Real links (Live/Code) sit above the stretched-link overlay so they stay
+   independently clickable. The CTA is a plain span left under the overlay, so
+   clicking it navigates to the project like the rest of the card. */
+.card-links a {
+  position: relative;
+  z-index: 2;
+}
+
 .card-cta {
   margin-right: auto;
+  color: var(--accent);
+}
+
+.card:hover .card-cta {
+  color: var(--accent-strong);
 }
 
 /* ---- Project detail page ------------------------------------------------- */

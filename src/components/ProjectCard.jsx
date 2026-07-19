@@ -4,26 +4,29 @@ import Icon from "./Icon.jsx";
 
 // A single project card. Extracted from Projects so the carousel can render
 // many of them without repeating the markup.
+//
+// The whole card is clickable via the "stretched link" pattern: the title
+// link carries a ::after overlay that covers the card (see .card-title-link in
+// global.css), so a click anywhere navigates to the project. The Live/Code
+// links sit above that overlay (.card-links has a higher z-index) so they stay
+// independently clickable — this keeps a single real <a> for the card instead
+// of nesting anchors, which is invalid HTML.
 export default function ProjectCard({ project }) {
   return (
     <article className="card">
       {project.image && (
-        <Link
-          to={`/projects/${project.slug}`}
-          tabIndex={-1}
-          aria-hidden="true"
-        >
-          <img
-            className="card-image"
-            src={asset(project.image)}
-            alt={project.name}
-            loading="lazy"
-          />
-        </Link>
+        <img
+          className="card-image"
+          src={asset(project.image)}
+          alt={project.name}
+          loading="lazy"
+        />
       )}
       <div className="card-body">
         <h3 className="card-title">
-          <Link to={`/projects/${project.slug}`}>{project.name}</Link>
+          <Link className="card-title-link" to={`/projects/${project.slug}`}>
+            {project.name}
+          </Link>
           {project.featured && <span className="badge">Featured</span>}
         </h3>
         <p className="card-text">{project.description}</p>
@@ -37,10 +40,10 @@ export default function ProjectCard({ project }) {
           </ul>
         )}
         <div className="card-links">
-          <Link className="card-cta" to={`/projects/${project.slug}`}>
+          <span className="card-cta">
             View project
             <Icon name="arrow-right" size={15} />
-          </Link>
+          </span>
           {project.links?.demo && (
             <a href={project.links.demo} target="_blank" rel="noreferrer">
               <Icon name="external" size={15} />
