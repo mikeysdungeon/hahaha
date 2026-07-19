@@ -145,6 +145,34 @@ export default function ProjectDetail() {
             )}
           </div>
         )}
+
+        {project.attachments?.length > 0 && (
+          <section className="project-attachments">
+            <h2 className="project-section-title">Downloads</h2>
+            <ul className="attachment-list">
+              {project.attachments.map((att) => (
+                <li key={att.file}>
+                  {/* Opens in a new tab so the browser's PDF viewer can show it;
+                      the viewer's own control handles saving a copy. */}
+                  <a
+                    className="attachment"
+                    href={asset(att.file)}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Icon name="download" size={18} />
+                    <span className="attachment-text">
+                      <span className="attachment-label">{att.label}</span>
+                      {att.note && (
+                        <span className="attachment-note">{att.note}</span>
+                      )}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </article>
   );

@@ -719,6 +719,56 @@ main {
   font-size: 0.9rem;
 }
 
+/* Downloadable attachments (e.g. a drawing package PDF) */
+.project-attachments {
+  margin-top: 1.25rem;
+}
+
+.attachment-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.attachment {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color 0.15s ease, transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.attachment:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.attachment .icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.attachment-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.attachment-label {
+  font-weight: 600;
+}
+
+.attachment-note {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 /* ---- 404 ------------------------------------------------------------------ */
 
 .notfound {

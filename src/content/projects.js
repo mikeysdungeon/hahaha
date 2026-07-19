@@ -291,29 +291,57 @@ export const projects = [
     featured: true,
   },
   {
-    name: "Dolphin Torch Housing Redesign",
+    name: "Dolphin Torch Reverse Engineering",
     slug: "dolphin-torch-housing-redesign",
     subtitle:
-      "Reverse Engineering, Interface Definition and Technical Documentation",
+      "Reverse Engineering · SolidWorks · Technical Drawing · Design for Manufacture",
     description:
-      "A reverse-engineered and redesigned mechanical housing, documented with drawings and tolerances to support repeatable manufacturing.",
+      "A complete teardown and redraw of an Eveready Dolphin torch — 16 parts across three sub-assemblies, modelled in SolidWorks and documented to manufacturing standard.",
     detail:
-      "This project worked backwards from an existing assembly to recover the intent behind it — how the parts interface, what the dimensional relationships are, and which requirements the original design was satisfying. The redesign was then documented to a standard that someone else could actually manufacture from.",
+      "I stripped an Eveready Dolphin torch down to its individual components and rebuilt it in SolidWorks as a full, manufacturable drawing set. Every part was measured, modelled and documented — from the ABS main casing and silicone seals to the sheet-metal battery contacts and the LED optic — with materials, masses, tolerances and section views defined so the whole product could be reproduced from the drawings alone.",
+
+    output:
+      "A complete A3 drawing package: a top-level assembly with an exploded bill of materials, three sub-assemblies (main body, battery holder & contacts, and lid), and fully dimensioned detail drawings for all 16 parts — each with its material, mass and tolerances specified, in third-angle projection.",
+
     highlights: [
-      "Reverse engineered an existing mechanical assembly to understand its components, interfaces, dimensional relationships and functional requirements.",
-      "Reconstructed and redesigned the housing in SolidWorks, focusing on component alignment, fit, assembly behaviour and functional accuracy.",
-      "Produced technical drawings with defined dimensions and tolerances to communicate implementation requirements clearly and support repeatable manufacturing.",
-      "Applied tolerance standards across interacting parts to manage variation and reduce the risk of assembly or fitment failure.",
+      "Reverse engineered a complete Eveready Dolphin torch into 16 parts across three sub-assemblies: main body (DT_1), battery holder and contacts (DT_2), and lid (DT_3).",
+      "Produced a structured bill of materials with part numbers and an exploded assembly view showing how every component fits together.",
+      "Assigned real materials and reported per-part mass — an 87 g ABS main casing, silicone-rubber seal and button, a PA6 button stem, alloy-steel and copper battery contacts, and a medium-impact acrylic lens.",
+      "Documented each part to manufacturing standard: dimensioned views, section and detail callouts, third-angle projection and tolerance blocks.",
     ],
+
+    takeaways: [
+      {
+        title: "Reverse engineering",
+        body: "Recovered the geometry, fits and interfaces of a real, mass-produced product by measurement — then rebuilt it part by part so the model matched how the torch actually goes together.",
+      },
+      {
+        title: "Design for manufacture",
+        body: "Documented to a standard someone else could build from: materials, masses and tolerances defined per part, not just a 3D model that looks right on screen.",
+      },
+      {
+        title: "Technical drawing",
+        body: "A full drawing package in third-angle projection with section and detail views and a structured, numbered bill of materials tying every part back to its assembly.",
+      },
+    ],
+
     tags: [
       "Reverse Engineering",
-      "Interface Definition",
-      "Technical Documentation",
       "SolidWorks",
+      "Technical Drawing",
       "GD&T",
+      "Design for Manufacture",
+      "BOM",
     ],
     links: {},
-    image: "",
+    attachments: [
+      {
+        label: "Full drawing package",
+        file: "/projects/dolphin-torch/dolphin-torch-drawings.pdf",
+        note: "23 A3 sheets · PDF · 4.2 MB",
+      },
+    ],
+    image: "/projects/dolphin-torch/exploded-view.webp",
     featured: false,
   },
 ];
