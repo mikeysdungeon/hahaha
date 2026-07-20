@@ -336,6 +336,7 @@ export const projects = [
       "BOM",
     ],
     links: {},
+    model: { src: "/models/dolphin-torch.stl", upAxis: "y" },
     attachments: [
       {
         label: "Full drawing package",
