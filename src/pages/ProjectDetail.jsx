@@ -57,6 +57,7 @@ export default function ProjectDetail() {
           <StlViewer
             src={project.model.src}
             upAxis={project.model.upAxis}
+            rock={project.model.rock}
             alt={`3D model of ${project.name}`}
           />
         </Suspense>

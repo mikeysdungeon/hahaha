@@ -13,7 +13,7 @@ import { asset } from "../lib/asset.js";
 // Vite splits it (and three) into a chunk that only loads on a CAD project page.
 const UP = { x: [1, 0, 0], y: [0, 1, 0], z: [0, 0, 1] };
 
-export default function StlViewer({ src, upAxis = "y", alt }) {
+export default function StlViewer({ src, upAxis = "y", rock = 0, alt }) {
   const mountRef = useRef(null);
   const [status, setStatus] = useState("loading"); // loading | ready | error
 
@@ -57,7 +57,13 @@ export default function StlViewer({ src, upAxis = "y", alt }) {
     controls.enablePan = false;
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
-    controls.autoRotate = !reduceMotion; // spin about camera.up == chosen axis
+    // Two idle motions, both about the chosen up axis:
+    //  - turntable (default): a full continuous spin.
+    //  - rock (rock > 0): a gentle ±rock° sway. Used when the part is exploded
+    //    across the view, where a full spin would sweep the pieces edge-on and
+    //    overlap them; rocking keeps the layout readable.
+    const rockRad = ((rock || 0) * Math.PI) / 180;
+    controls.autoRotate = !reduceMotion && !rockRad; // spin about camera.up
     controls.autoRotateSpeed = 1.6;
 
     let mesh = null;
@@ -120,8 +126,14 @@ export default function StlViewer({ src, upAxis = "y", alt }) {
         fit(geometry);
         setStatus("ready");
 
+        const rockStart = performance.now();
+        const ROCK_W = 0.7; // rad/s → a calm ~9 s sway cycle
         const tick = () => {
           raf = requestAnimationFrame(tick);
+          if (rockRad && !reduceMotion && mesh) {
+            const t = (performance.now() - rockStart) / 1000;
+            mesh.setRotationFromAxisAngle(up, rockRad * Math.sin(t * ROCK_W));
+          }
           controls.update();
           renderer.render(scene, camera);
         };
@@ -144,7 +156,7 @@ export default function StlViewer({ src, upAxis = "y", alt }) {
       if (renderer.domElement.parentNode === mount)
         mount.removeChild(renderer.domElement);
     };
-  }, [src, upAxis, alt]);
+  }, [src, upAxis, rock, alt]);
 
   return (
     <div className="stl-viewer">

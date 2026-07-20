@@ -336,7 +336,7 @@ export const projects = [
       "BOM",
     ],
     links: {},
-    model: { src: "/models/dolphin-torch.stl", upAxis: "z" },
+    model: { src: "/models/dolphin-torch.stl", upAxis: "z", rock: 25 },
     figure: {
       src: "/projects/dolphin-torch/exploded-assembly-drawing.webp",
       caption:
