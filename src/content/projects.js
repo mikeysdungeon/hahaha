@@ -126,7 +126,7 @@ export const projects = [
           {
             label: "Part 4",
             title: "Prototype variations, load testing and FEA",
-            body: "10 designs with 5 iterations each. The test rig was deliberately simple: pieces were clamped to a post with a luggage scale pulling on the lip of the mount until it either broke or reached 40 kg.",
+            body: "Ten designs with five iterations each. The test rig was deliberately simple: pieces were clamped to a post with a luggage scale pulling on the lip of the mount until it either broke or reached 40 kg.",
             image: "/projects/handlebar-mount/part-4-prototypes-load-testing-fea.webp",
             alt: "Printed prototype variations, the clamp-and-luggage-scale test rig, and a von-Mises FEA stress plot peaking at 92.45 MPa.",
           },
@@ -276,7 +276,7 @@ export const projects = [
       },
       {
         title: "Next steps and material selection",
-        body: "Final part in ABS: a glass-transition temperature near 100°C suits the underbonnet environment (versus nylon's ~70°C), and acetone solvent-welding gives strong, sealed joints between the FDM sections. ASA offers better UV and heat-soak resistance but bonds less readily with acetone. If chosen, joint strength must be re-validated.",
+        body: "Final part in ABS: a glass-transition temperature near 100 °C suits the underbonnet environment (versus nylon's ~70 °C), and acetone solvent-welding gives strong, sealed joints between the FDM sections. ASA offers better UV and heat-soak resistance but bonds less readily with acetone. If chosen, joint strength must be re-validated.",
       },
     ],
 
