@@ -27,9 +27,12 @@ export const profile = {
 
   // Social links. `icon` is one of: github, linkedin, x, mail, globe
   // (see src/components/Icon.jsx — add your own there if needed).
-  // TODO: add LinkedIn once you have the URL — your resume still has
-  // "[ADD LINK]" as a placeholder there.
   socials: [
     { label: "GitHub", url: "https://github.com/mikeysdungeon", icon: "github" },
+    {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/isa-mukaramov/",
+      icon: "linkedin",
+    },
   ],
 };
